@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zepto Logic Technologies - Courses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        /* Header */
+        header {
+            background: #003087;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        nav h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ff4d4d;
+        }
+        /* Navigation Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: #003087;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+        }
+        .dropdown-content a:hover {
+            background: #ff4d4d;
+            color: white;
+        }
+        /* Courses Section */
+        .courses {
+            max-width: 1200px;
+            margin: 100px auto 4rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        .courses h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #003087;
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .course-box {
+            background: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .course-box:hover {
+            transform: scale(1.05);
+        }
+        .course-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .course-box h3 {
+            font-size: 1.5rem;
+            padding: 1rem;
+            background: #ffffff;
+            text-align: center;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #003087;
+        }
+        /* ASIC Course Box Dropdown */
+        .image-dropdown {
+            position: relative;
+            display: block;
+        }
+        .image-dropdown-content {
+            display: none;
+            position: absolute;
+            background: #003087;
+            min-width: 100%;
+            max-height: 150px; /* Fixed height to make it scrollable */
+            overflow-y: auto; /* Enable vertical scrolling */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+        .course-box:hover .image-dropdown-content {
+            display: block;
+        }
+        .image-dropdown-content a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: white;
+            text-decoration: none;
+            font-weight: normal;
+            text-align: center;
+        }
+        .image-dropdown-content a:hover {
+            background: #ff4d4d;
+            color: white;
+        }
+        /* Footer */
+        footer {
+            background: #003087;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+        footer a:hover {
+            color: #ff4d4d;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .course-box img {
+                height: 150px;
+            }
+            .course-box h3 {
+                height: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Zepto Logic Technologies</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li class="dropdown">
+                    <a href="courses.html">Courses</a>
+                    <div class="dropdown-content">
+                        <a href="asic.html" class="dropdown">
+                            ASIC
+                    
+                        </a>
+                        <a href="fpga.html">FPGA</a>
+                        <a href="embedded.html">Embedded</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="courses">
+        <h2>Our Courses</h2>
+        <div class="course-grid">
+            <div class="course-box">
+                <div class="image-dropdown">
+                    <img src="images/ASIC.jpg" alt="ASIC Course">
+                    <div class="image-dropdown-content">
+                        <a href="analog.html">Analog</a>
+                        <a href="digital.html">Digital</a>
+                        <a href="mixedsignal.html">Mixed Signal</a>
+                       
+                    </div>
+                </div>
+                <h3>ASIC</h3>
+            </div>
+            <a href="fpga.html" class="course-box">
+                <img src="images/FPGA.jpg" alt="FPGA Course">
+                <h3>FPGA</h3>
+            </a>
+            <a href="embedded.html" class="course-box">
+                <img src="images/Microcontroller.jpg" alt="Embedded Course">
+                <h3>Embedded</h3>
+            </a>
+        </div>
+    </section>
+    <footer>
+        <p>© 2025 Zepto Logic Technologies. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#refund">Refund Policy</a> | <a href="#terms">Terms & Conditions</a></p>
+    </footer>
+</body>
+</html>

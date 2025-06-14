@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FPGA Courses - Zepto Logic</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    header {
+      background: #003087;
+      padding: 1rem 2rem;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .asic-section {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .asic-section h2 {
+      text-align: center;
+      color: #003087;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .asic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .asic-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-decoration: none;
+      color: #003087;
+      transition: transform 0.3s ease;
+    }
+
+    .asic-card:hover {
+      transform: scale(1.05);
+      background: #e6f0ff;
+    }
+
+    .asic-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .asic-card-title {
+      padding: 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    footer {
+      background: #003087;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Zepto Logic Technologies - FPGA Specializations</h1>
+</header>
+
+<section class="asic-section">
+  <h2>Select Your Specialization</h2>
+  <div class="asic-grid">
+    <a href="fpgafun.html" class="asic-card">
+      <img src="images/analog.jpg" alt="Analog">
+      <div class="asic-card-title">FPGA Fundamentals</div>
+    </a>
+    <a href="fpgainter.html" class="asic-card">
+      <img src="images/digital.jpg" alt="Digital">
+      <div class="asic-card-title">Intermediate FPGA Design</div>
+    </a>
+    <a href="fpgaadvance.html" class="asic-card">
+      <img src="images/mixedsignal.jpg" alt="Mixed Signal">
+      <div class="asic-card-title">Advanced FPGA Design</div>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Zepto Logic Technologies. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

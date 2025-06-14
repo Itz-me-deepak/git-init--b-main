@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Zepto Logic Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fbfc;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #002B5B;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .about-container h2 {
+      text-align: center;
+      color: #002B5B;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-text, .about-image {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .mission-vision {
+      border-top: 1px solid #e0e0e0;
+      padding-top: 2rem;
+    }
+
+    .mission-vision h3 {
+      font-size: 1.5rem;
+      color: #002B5B;
+      margin-bottom: 0.8rem;
+    }
+
+    .mission-vision p {
+      font-size: 1.05rem;
+      color: #333;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .about-container h2 {
+        font-size: 1.75rem;
+      }
+      .mission-vision h3 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Zepto Logic Technologies</h1>
+  </header>
+
+  <div class="about-container">
+    <h2>Empowering Future Innovators</h2>
+    <div class="about-section">
+      <div class="about-text">
+        <p>
+          We are a forward-thinking semiconductor solutions company focused on building skilled talent and delivering high-quality VLSI and embedded system services. By offering strong exposure to industry practices and tools, we bridge the gap between academic learning and real-world application, driving innovation through hands-on experience.
+        </p>
+      </div>
+      <div class="about-image">
+        <img src="images/zepto.jpeg" alt="Zepto Logic Technologies Office">
+      </div>
+    </div>
+
+    <div class="mission-vision">
+      <h3>Our Mission</h3>
+      <p>
+        Our mission is to empower future semiconductor professionals and support organizations through practical, application-driven training and services. We aim to build a strong talent ecosystem skilled in VLSI, embedded systems, and chip design. These professionals will be equipped to lead with confidence in a fast-evolving tech landscape.
+      </p>
+
+      <h3>Our Vision</h3>
+      <p>
+        Our vision is to become a global hub for semiconductor excellence, where talent meets opportunity, innovation drives progress, and education powers long-term growth. We are committed to shaping the industry through workforce development, cutting-edge technology, and meaningful collaboration.
+      </p>
+    </div>
+  </div>
+</body>
+</html>

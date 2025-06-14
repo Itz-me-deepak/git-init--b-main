@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zepto Logic Technologies - Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background: #003087;
+      color: white;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+
+    nav h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff4d4d;
+    }
+
+    /* Dropdown Menu */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #003087;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: white;
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    .dropdown-content a:hover {
+      background: #ff4d4d;
+      color: white;
+    }
+
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 80px);
+      overflow: hidden;
+      margin-top: 80px;
+    }
+
+    .carousel-images {
+      display: flex;
+      height: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100vw;
+      height: 100%;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 48, 135, 0.7);
+      color: white;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 1.5rem;
+    }
+
+    .carousel-btn.prev {
+      left: 1rem;
+    }
+
+    .carousel-btn.next {
+      right: 1rem;
+    }
+
+    /* Courses Section */
+    .courses {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .courses h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #003087;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .course-card {
+      display: flex;
+      flex-direction: column;
+      height: 350px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .course-card:hover {
+      transform: scale(1.02);
+    }
+
+    .course-image {
+      flex: 2;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .course-info {
+      flex: 1;
+      padding: 1rem;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .course-info h3 {
+      font-size: 1.4rem;
+      color: #003087;
+      margin-bottom: 0.5rem;
+    }
+
+    .course-info p {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Why Choose Section */
+    .why-choose {
+      background-color: #f0f4ff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .why-choose h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #003087;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .why-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .why-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+
+    .why-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #003087;
+    }
+
+    .why-card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    /* Footer */
+    footer {
+      background: #003087;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .footer-contact {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-contact a {
+      color: #ffcccb;
+      text-decoration: none;
+    }
+
+    .footer-contact a:hover {
+      text-decoration: underline;
+      color: #ff4d4d;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer a:hover {
+      color: #ff4d4d;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .carousel {
+        height: 50vh;
+      }
+      .why-choose {
+        padding: 2rem 1rem;
+     
+      }
+    }
+    /* Services Section */
+.services {
+  background: #f9fbff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 2.5rem;
+  color: #003087;
+  margin-bottom: 2rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.service-card h3 {
+  font-size: 1.4rem;
+  color: #003087;
+  margin-bottom: 0.8rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Zepto Logic Technologies</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown">
+          <a href="courses.html">Courses</a>
+          <div class="dropdown-content">
+            <a href="asic.html">ASIC</a>
+            <a href="fpga.html">FPGA</a>
+            <a href="embedded.html">Embedded</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="carousel">
+    <div class="carousel-images" id="carouselImages">
+      <img src="images/image1.png" alt="VLSI Course 1">
+      <img src="images/image2.png" alt="Embedded Systems">
+      <img src="images/image3.png" alt="EV and AI Training">
+      <img src="images/image4.png" alt="Course 4">
+      <img src="images/image5.png" alt="Course 5">
+      <img src="images/image6.png" alt="Course 6">
+    </div>
+    <button class="carousel-btn prev" onclick="moveCarousel(-1)">←</button>
+    <button class="carousel-btn next" onclick="moveCarousel(1)">→</button>
+  </section>
+
+  <section class="courses">
+    <h2>Our Courses</h2>
+    <div class="course-grid">
+      <a href="asic.html" class="course-card">
+        <div class="course-image" style="background-image: url('images/asic.jpg');"></div>
+        <div class="course-info">
+          <h3>ASIC</h3>
+          <p>Application-Specific Integrated Circuit design and flow.</p>
+        </div>
+      </a>
+      <a href="fpga.html" class="course-card">
+        <div class="course-image" style="background-image: url('images/fpga.jpg');"></div>
+        <div class="course-info">
+          <h3>FPGA</h3>
+          <p>Programmable logic design using HDLs and simulation tools.</p>
+        </div>
+      </a>
+      <a href="embedded.html" class="course-card">
+        <div class="course-image" style="background-image: url('images/Microcontroller.jpg');"></div>
+        <div class="course-info">
+          <h3>Embedded</h3>
+          <p>Hands-on experience with real-time embedded systems.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+    <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>IP Development</h3>
+        <p>Custom analog/digital IPs like PLLs, ADCs, and NCOs tailored to your silicon needs.</p>
+      </div>
+      <div class="service-card">
+        <h3>Frontend Design</h3>
+        <p>RTL, verification, and simulation using industry-grade tools and methodologies.</p>
+      </div>
+      <div class="service-card">
+        <h3>RTL Design</h3>
+        <p>Designing scalable and optimized RTL using Verilog/SystemVerilog with testbenches.</p>
+      </div>
+      <div class="service-card">
+        <h3>Synthesis</h3>
+        <p>Logic synthesis using Synopsys/Cadence tools, optimized for area, power, and timing.</p>
+      </div>
+      <div class="service-card">
+        <h3>DFT</h3>
+        <p>Implementation of Scan Chains, BIST, MBIST and ATPG for manufacturability and testing.</p>
+      </div>
+      <div class="service-card">
+        <h3>FPGA Design</h3>
+        <p>Prototype and deploy RTL on FPGAs using Xilinx, Intel tools and board-level debugging.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="why-choose">
+    <h2>Why Choose Zepto Logic Technologies</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <img src="images/industry.jpg" alt="Curriculum Icon">
+        <h3>Industry-Driven Curriculum</h3>
+        <p>Our courses are designed with inputs from industry professionals to meet current VLSI trends and demands.</p>
+      </div>
+      <div class="why-card">
+        <img src="images/Tools.jpg" alt="Lab Icon">
+        <h3>Hands-on VLSI Labs</h3>
+        <p>Access to Cadence tools, simulations, and real-time projects to build your practical skills.</p>
+      </div>
+      <div class="why-card">
+        <img src="images/mentor.jpg" alt="Mentor Icon">
+        <h3>Expert Mentors</h3>
+        <p>Learn from experienced professionals with real-world VLSI and embedded system expertise.</p>
+      </div>
+      <div class="why-card">
+        <img src="images/assistance.jpg" alt="Placement Icon">
+        <h3>Placement Assistance</h3>
+        <p>We provide resume building, mock interviews, and help you connect with top semiconductor firms.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-contact">
+      <p><strong>Email:</strong> <a href="mailto:info@zeptologictech.com">info@zeptologictech.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919344707218">+91-9344707218</a></p>
+      <p><strong>Address:</strong> Zeptologic Technologies Pvt Ltd, TICEL Bio Park Ltd, Md no: 503, 5th floor, Maruthamalai Road, Somaiyampalayam Village, Coimbatore: 641046, Tamilnadu, India.</p>
+    </div>
+    <p>© 2025 Zepto Logic Technologies. All rights reserved. | 
+      <a href="#privacy">Privacy Policy</a> | 
+      <a href="#refund">Refund Policy</a> | 
+      <a href="#terms">Terms & Conditions</a>
+    </p>
+  </footer>
+
+  <script>
+    const imagesContainer = document.getElementById('carouselImages');
+    const images = imagesContainer.children;
+    const totalImages = images.length;
+
+    let currentIndex = 1;
+    let imageCount = totalImages;
+
+    const firstClone = images[0].cloneNode(true);
+    const lastClone = images[imageCount - 1].cloneNode(true);
+    imagesContainer.appendChild(firstClone);
+    imagesContainer.insertBefore(lastClone, imagesContainer.firstChild);
+
+    imageCount += 2;
+    imagesContainer.style.transform = `translateX(-100vw)`;
+
+    function moveCarousel(direction) {
+      if (imagesContainer.style.transition === '') {
+        imagesContainer.style.transition = 'transform 0.5s ease-in-out';
+      }
+
+      currentIndex += direction;
+      imagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+
+      imagesContainer.addEventListener('transitionend', handleLoop);
+    }
+
+    function handleLoop() {
+      imagesContainer.removeEventListener('transitionend', handleLoop);
+
+      if (currentIndex === imageCount - 1) {
+        imagesContainer.style.transition = 'none';
+        currentIndex = 1;
+        imagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      }
+
+      if (currentIndex === 0) {
+        imagesContainer.style.transition = 'none';
+        currentIndex = imageCount - 2;
+        imagesContainer.style.transform = `translateX(-${currentIndex * 100}vw)`;
+      }
+
+      setTimeout(() => {
+        imagesContainer.style.transition = 'transform 0.5s ease-in-out';
+      }, 50);
+    }
+  </script>
+</body>
+</html>
